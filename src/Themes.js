@@ -1,8 +1,8 @@
 export const lightTheme = {};
 
 export const darkTheme = {
-  body: "1b262c",
+  body: "#070910",
   text: "white",
-  titleText: "#bbe1fa",
-  jobList: "#30475e",
+  titleText: "#03dac6",
+  jobList: "#212628",
 };
