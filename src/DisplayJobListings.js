@@ -3,7 +3,7 @@ import JobCard from "./JobCard";
 import JobList from "./JobList";
 
 const DisplayJobListings = ({ jobData }) => {
-  const [displayStyle, setDisplayStyle] = useState("grid");
+  const [displayStyle, setDisplayStyle] = useState("list");
 
   // can have a component here for grid or list icons
 

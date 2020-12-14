@@ -11,7 +11,7 @@ const JobList = ({ jobDetails }) => {
   return (
     <div id="job-list">
       <img className="company-logo" src={"/test.png"} alt="" />
-      <div className="test">
+      <div className="main-details">
         <p>{company}</p>
         <p>{title}</p>
         <p>{location}</p>

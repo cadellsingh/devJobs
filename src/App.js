@@ -3,7 +3,6 @@ import { useState, useEffect, useReducer } from "react";
 import axios from "axios";
 import Header from "./Header";
 import Form from "./Form";
-import JobCard from "./JobCard";
 import DisplayJobListings from "./DisplayJobListings";
 
 const inputs = {
@@ -33,18 +32,21 @@ const App = () => {
     // state variables will affect what the user wants to see
   }, []);
 
-  const { data } = jobData;
+  // could show how many results were found
 
-  const jobDetails = data === undefined ? null : data[0];
+  console.log(jobData);
+
+  const { data } = jobData;
 
   return (
     <div className="main-container">
       <Header />
       <Form />
-
       <DisplayJobListings jobData={data} />
     </div>
   );
 };
+
+// footer would be github icon at the bottom left
 
 export default App;
