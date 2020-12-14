@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <header>
       <h1>devJobs</h1>
-      {/*    icon for dark/light mode*/}
+      <span className="icon">
+        <FontAwesomeIcon icon={faMoon} />
+      </span>
     </header>
   );
 };
