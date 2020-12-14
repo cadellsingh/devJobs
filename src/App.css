@@ -5,7 +5,10 @@
 }
 
 html {
-  background-color: lightblue;
+  /*background-color: #1b262c;*/
+  background-color: #070910;
+  /*1b262c*/
+  color: white;
 }
 
 .main-container {
@@ -78,10 +81,10 @@ header .icon {
 #job-list {
   display: grid;
   grid-template-columns: 80px 2fr 1fr;
-  border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
-  margin-top: 30px;
+  margin-top: 25px;
+  background-color: #212628;
 }
 
 #job-list .company-logo {
@@ -92,17 +95,21 @@ header .icon {
 }
 
 #job-list .main-details {
-  background-color: purple;
+  /*background-color: purple;*/
 }
 
 #job-list .main-details p {
   padding: 5px;
 }
 
+#job-list .main-details p:nth-child(2n) {
+  color: #03dac6;
+}
+
 #job-list .type {
   display: flex;
   justify-content: space-around;
-  background-color: green;
+  /*background-color: green;*/
   width: 100%;
   margin: auto 0;
 }
