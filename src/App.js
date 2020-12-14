@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useEffect, useReducer } from "react";
+import axios from "axios";
+import Header from "./Header";
+import Form from "./Form";
+import JobCard from "./JobCard";
+import DisplayJobListings from "./DisplayJobListings";
 
-function App() {
+const inputs = {
+  title: "",
+  location: "",
+  fullTime: false,
+};
+
+const setFormInputs = (state, action) => {};
+
+const App = () => {
+  const [jobData, setJobData] = useState([]);
+  const [formInputs, dispatchInputs] = useReducer(setFormInputs, inputs);
+
+  useEffect(() => {
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+    const apiUrl =
+      "https://jobs.github.com/positions.json?description=python&location=new+york";
+    const fetchData = async () => {
+      const result = await axios(proxyUrl + apiUrl);
+
+      setJobData(result);
+    };
+
+    fetchData();
+    // so the empty array can be state variables
+    // state variables will affect what the user wants to see
+  }, []);
+
+  const { data } = jobData;
+
+  const jobDetails = data === undefined ? null : data[0];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-container">
+      <Header />
+      <Form />
+
+      <DisplayJobListings jobData={data} />
     </div>
   );
-}
+};
 
 export default App;
