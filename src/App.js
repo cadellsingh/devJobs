@@ -39,10 +39,13 @@ const App = () => {
   const { data } = jobData;
 
   return (
-    <div className="main-container">
-      <Header />
-      <Form />
-      <DisplayJobListings jobData={data} />
+    <div>
+      <img className="wave" src="wave.svg" alt="" />
+      <div className="main-container">
+        <Header />
+        <Form />
+        <DisplayJobListings jobData={data} />
+      </div>
     </div>
   );
 };
