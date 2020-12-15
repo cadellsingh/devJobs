@@ -3,6 +3,17 @@ export const lightTheme = {};
 export const darkTheme = {
   body: "#070910",
   text: "white",
-  titleText: "#03dac6",
-  jobList: "#212628",
+
+  // JOB LIST COLORS
+  titleText: "#03dac6", // same color for list and grid title
+  jobListBackground: "#212628",
+
+  // FORM COLORS
+  border: "#212628", // entire border and left / right border of filter by location
+  backgroundColor: "#070910", // backgroundColor for form container and inputs
+  buttonBackgroundColor: "#03dac6",
+  buttonTextColor: "#212628",
+
+  // JOB GRID COLORS
+  jobGridBackground: "#212628",
 };
