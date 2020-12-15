@@ -1,9 +1,10 @@
 import { useState } from "react";
 import JobCard from "./JobCard";
 import JobList from "./JobList";
+import GridOrList from "./GridOrList";
 
 const DisplayJobListings = ({ jobData }) => {
-  const [displayStyle, setDisplayStyle] = useState("list");
+  const [displayStyle, setDisplayStyle] = useState("grid");
 
   // can have a component here for grid or list icons
 
@@ -11,7 +12,7 @@ const DisplayJobListings = ({ jobData }) => {
 
   return (
     <div>
-      {/*this will be grid or list depending on what the user chooses*/}
+      <GridOrList />
       {displayStyle === "grid" ? (
         <div id="grid-container">
           <JobCard jobDetails={jobDetails} />
