@@ -19,9 +19,11 @@ const JobCard = ({ jobDetails }) => {
         <span className="dot" />
         <p>{type}</p>
       </div>
-      <p>{title}</p>
-      <p>{company}</p>
-      <p>{location}</p>
+      <div className="details">
+        <p>{title}</p>
+        <p>{company}</p>
+        <p>{location}</p>
+      </div>
     </div>
   );
 };

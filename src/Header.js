@@ -6,7 +6,7 @@ const Header = () => {
     <header>
       <h1>devJobs</h1>
       <span className="icon">
-        <FontAwesomeIcon icon={faMoon} />
+        <FontAwesomeIcon icon={faSun} />
       </span>
     </header>
   );
