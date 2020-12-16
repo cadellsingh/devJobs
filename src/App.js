@@ -45,7 +45,7 @@ const App = () => {
   return (
     <div>
       {/*maybe wave could be of color => #045757 for dark mode*/}
-      <img className="wave" src="wave.svg" alt="" />
+      <img src="wave.svg" alt="" />
       <div className="main-container">
         <Header />
         <Form />

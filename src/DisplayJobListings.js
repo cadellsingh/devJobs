@@ -4,7 +4,7 @@ import JobList from "./JobList";
 import CardsOrList from "./CardsOrList";
 
 const DisplayJobListings = ({ jobData }) => {
-  const [displayStyle, setDisplayStyle] = useState("card");
+  const [displayStyle, setDisplayStyle] = useState("list");
 
   const handleOnClick = (arg) => {
     arg === "card" ? setDisplayStyle("card") : setDisplayStyle("list");
