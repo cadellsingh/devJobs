@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "./Header";
 import Form from "./Form";
 import DisplayJobListings from "./DisplayJobListings";
+import ShowMore from "./ShowMore";
 
 const inputs = {
   title: "",
@@ -15,6 +16,7 @@ const setFormInputs = (state, action) => {};
 
 const App = () => {
   const [jobData, setJobData] = useState([]);
+  const [showMore, setShowMore] = useState(0);
   const [formInputs, dispatchInputs] = useReducer(setFormInputs, inputs);
 
   useEffect(() => {
@@ -32,19 +34,23 @@ const App = () => {
     // state variables will affect what the user wants to see
   }, []);
 
-  // could show how many results were found
+  const handleShowMoreClick = () => {
+    setShowMore(showMore + 1);
+  };
 
-  console.log(jobData);
+  // could show how many results were found
 
   const { data } = jobData;
 
   return (
     <div>
+      {/*maybe wave could be of color => #045757 for dark mode*/}
       <img className="wave" src="wave.svg" alt="" />
       <div className="main-container">
         <Header />
         <Form />
         <DisplayJobListings jobData={data} />
+        <ShowMore handleOnClick={handleShowMoreClick} />
       </div>
     </div>
   );

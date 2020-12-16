@@ -37,13 +37,22 @@ html {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 40px 0;
-  color: #212628;
+  padding: 30px 0;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 header .icon {
   margin: auto 0;
-  font-size: 30px;
+  font-size: 40px;
+}
+
+.animate-postings {
+  position: relative;
+  display: block;
+  transform-origin: bottom;
+  animation: animateWave 1000ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 #grid-container {
@@ -136,6 +145,7 @@ header .icon {
   border-radius: 5px;
   background-color: #070910;
   border: 1px solid #212628;
+  position: sticky;
 }
 
 #form-container .location {
@@ -149,6 +159,7 @@ header .icon {
   outline: none;
   border: none;
   background-color: #070910;
+  font-size: 15px;
   color: white;
 }
 
@@ -173,21 +184,63 @@ header .icon {
 
 #form-container .checkbox label {
   margin: 0 15px;
+  font-size: 15px;
 }
 
 #form-container .search-container button {
   padding: 0 25px;
-  background-color: #03dac6;
+  background-color: #045757;
   outline: none;
   border: none;
-  color: #212628;
+  color: white;
   font-size: 15px;
+  cursor: pointer;
 }
 
-/*GRID OR LIST*/
-.grid-or-list {
+/*CARDS OR LIST*/
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.container p {
+  margin: auto 0;
+}
+
+.cards-or-list-container {
+  display: flex;
+  border: 1px solid #212628;
+}
+
+.cards-or-list-container svg {
+  margin: auto 10px auto auto;
+}
+
+.cards-or-list-container div {
+  display: flex;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.cards-or-list-container p {
+  margin: auto 0;
+  vertical-align: center;
+}
+
+.active {
+  background-color: #045757;
+}
+
+/*SHOW MORE BUTTON*/
+.show-more {
   display: flex;
   justify-content: center;
-  text-align: center;
-  /*background-color: green;*/
+  margin: 40px 0;
+}
+
+.show-more p {
+  background-color: #045757;
+  padding: 15px;
+  /*margin: auto;*/
 }
