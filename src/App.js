@@ -21,10 +21,11 @@ const App = () => {
 
   useEffect(() => {
     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-    const apiUrl =
+    let apiUrl =
       "https://jobs.github.com/positions.json?description=python&location=new+york";
+    apiUrl = "https://jobs.github.com/positions.json?description=ruby&page=1";
     const fetchData = async () => {
-      const result = await axios(proxyUrl + apiUrl);
+      const result = await axios(apiUrl);
 
       setJobData(result);
     };
@@ -37,8 +38,6 @@ const App = () => {
   const handleShowMoreClick = () => {
     setShowMore(showMore + 1);
   };
-
-  // could show how many results were found
 
   const { data } = jobData;
 
