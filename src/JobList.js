@@ -10,11 +10,12 @@ const JobList = ({ jobDetails }) => {
 
   return (
     <div id="job-list">
-      <img className="company-logo" src={"/test.png"} alt="" />
+      {/*<img className="company-logo" src={"/test.png"} alt="" />*/}
+      <img className="company-logo" src={companyLogo} alt={company} />
       <div className="main-details">
         <p>{company}</p>
         <p>{title}</p>
-        <p>{location}</p>
+        <p className="location">{location}</p>
       </div>
       <div className="type">
         <p>{type}</p>

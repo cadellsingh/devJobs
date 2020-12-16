@@ -11,18 +11,17 @@ const JobCard = ({ jobDetails }) => {
   return (
     <div id="job-grid">
       <div className="logo-container">
-        {/*<img className="company-logo" src={companyLogo} alt={company} />*/}
-        <img className="company-logo" src={"/test.png"} alt="" />
+        <img className="company-logo" src={companyLogo} alt={company} />
+        {/*<img className="company-logo" src={"/test.png"} alt="" />*/}
       </div>
-      <div>
+      <div className="date-posted">
         <p>5h ago</p>
-        <span className="dot" />
         <p>{type}</p>
       </div>
       <div className="details">
         <p>{title}</p>
         <p>{company}</p>
-        <p>{location}</p>
+        <p className="location">{location}</p>
       </div>
     </div>
   );
