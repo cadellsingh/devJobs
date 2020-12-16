@@ -1,7 +1,8 @@
 import { useState } from "react";
-import JobCard from "./JobCard";
 import JobList from "./JobList";
 import CardsOrList from "./CardsOrList";
+import JobCardRow from "./JobCardRow";
+import { uid } from "./utils/uid";
 
 const DisplayJobListings = ({ jobData }) => {
   const [displayStyle, setDisplayStyle] = useState("list");
@@ -10,43 +11,35 @@ const DisplayJobListings = ({ jobData }) => {
     arg === "card" ? setDisplayStyle("card") : setDisplayStyle("list");
   };
 
-  const jobDetails = jobData === undefined ? null : jobData[0];
+  let displayListing;
+
+  if (jobData !== undefined) {
+    if (displayStyle === "list") {
+      displayListing = jobData.map((data) => {
+        return (
+          <div key={uid()}>
+            <JobList jobDetails={data} />
+          </div>
+        );
+      });
+    } else {
+      displayListing = <JobCardRow jobData={jobData} />;
+    }
+  } else {
+    displayListing = null;
+  }
 
   return (
     <div>
       <div className="container">
-        <p>50 results found</p>
+        <p>{jobData !== null && jobData.length} results found</p>
         <CardsOrList
           handleOnClick={handleOnClick}
           displayStyle={displayStyle}
         />
       </div>
-      {/*<CardsOrList handleOnClick={handleOnClick} displayStyle={displayStyle} />*/}
-      {displayStyle === "card" ? (
-        <div className="animate-postings">
-          <div id="grid-container">
-            <JobCard jobDetails={jobDetails} />
-            <JobCard jobDetails={jobDetails} />
-            <JobCard jobDetails={jobDetails} />
-            <JobCard jobDetails={jobDetails} />
-            <JobCard jobDetails={jobDetails} />
-            <JobCard jobDetails={jobDetails} />
-            <JobCard jobDetails={jobDetails} />
-            <JobCard jobDetails={jobDetails} />
-          </div>
-        </div>
-      ) : (
-        <div className="animate-postings">
-          <JobList jobDetails={jobDetails} />
-          <JobList jobDetails={jobDetails} />
-          <JobList jobDetails={jobDetails} />
-          <JobList jobDetails={jobDetails} />
-          <JobList jobDetails={jobDetails} />
-          <JobList jobDetails={jobDetails} />
-          <JobList jobDetails={jobDetails} />
-          <JobList jobDetails={jobDetails} />
-        </div>
-      )}
+
+      <div className="animate-postings">{displayListing}</div>
     </div>
   );
 };
