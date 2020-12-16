@@ -11,8 +11,8 @@ export const darkTheme = {
   // FORM COLORS
   border: "#212628", // entire border and left / right border of filter by location
   backgroundColor: "#070910", // backgroundColor for form container and inputs
-  buttonBackgroundColor: "#03dac6",
-  buttonTextColor: "#212628",
+  buttonBackgroundColor: "#045757",
+  buttonTextColor: "white",
 
   // JOB GRID COLORS
   jobGridBackground: "#212628",
