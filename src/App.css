@@ -9,6 +9,11 @@ html {
   color: white;
 }
 
+.wave {
+  position: absolute;
+  z-index: -1;
+}
+
 @keyframes animateWave {
   0% {
     transform: scale(1, 0);
@@ -21,9 +26,6 @@ html {
 .main-container {
   width: 70%;
   margin: 0 auto;
-  position: absolute;
-  top: 0;
-  left: 15%;
 }
 
 /*HEADER*/
@@ -137,11 +139,15 @@ header .icon {
 #form-container {
   padding: 5px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 100px 100px;
   border-radius: 5px;
   background-color: #070910;
   border: 1px solid #212628;
-  position: sticky;
+}
+
+#form-container div {
+  height: 60px;
+  line-height: 60px;
 }
 
 #form-container .location {
@@ -149,42 +155,40 @@ header .icon {
   border-right: 1px solid #212628;
 }
 
-#form-container input {
+#form-container input[type="text"] {
   width: 100%;
-  padding: 15px;
+  padding-left: 15px;
   outline: none;
   border: none;
   background-color: #070910;
   font-size: 15px;
   color: white;
+  vertical-align: center;
 }
 
 ::placeholder {
   color: white;
 }
 
-#form-container .search-container {
+#form-container .full-time-checkbox {
   display: flex;
-  justify-content: space-around;
-  font-size: 13px;
 }
 
-#form-container input[type="checkbox"] {
-  width: auto;
-  margin-left: 10px;
+#form-container .full-time-checkbox input {
+  margin: auto 10px;
 }
 
-#form-container .checkbox {
-  margin: auto 0;
+#form-container .full-time-checkbox label {
+  margin: auto;
+  width: 200px;
 }
 
-#form-container .checkbox label {
-  margin: 0 15px;
-  font-size: 15px;
+#form-container .button {
+  margin: auto;
 }
 
-#form-container .search-container button {
-  padding: 0 25px;
+#form-container .button button {
+  padding: 20px;
   background-color: #045757;
   outline: none;
   border: none;
@@ -238,5 +242,38 @@ header .icon {
 .show-more p {
   background-color: #045757;
   padding: 15px;
-  /*margin: auto;*/
+}
+
+@media (max-width: 900px) {
+  .main-container {
+    width: 80%;
+  }
+
+  #grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #form-container .title {
+    grid-column: 1 / 5;
+    border-bottom: 1px solid #212628;
+  }
+
+  #form-container .location {
+    grid-column: 1 / 4;
+    border-left: none;
+  }
+
+  #form-container .full-time-checkbox {
+    grid-column: 4 / 5;
+  }
+
+  #form-container .button {
+    border-top: 1px solid #212628;
+    grid-column: 1 / 5;
+    width: 100%;
+  }
+
+  #form-container .button button {
+    width: 100%;
+  }
 }
