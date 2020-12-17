@@ -5,6 +5,8 @@ import Header from "./Header";
 import Form from "./Form";
 import DisplayJobListings from "./DisplayJobListings";
 import ShowMore from "./ShowMore";
+import Wave from "./Wave";
+import GithubIcon from "./GithubIcon";
 
 const inputs = {
   title: "",
@@ -43,8 +45,8 @@ const App = () => {
 
   return (
     <div>
-      {/*maybe wave could be of color => #045757 for dark mode*/}
-      <img className="wave" src="wave.svg" alt="" />
+      <Wave />
+      <GithubIcon />
       <div className="main-container">
         <Header />
         <Form />
