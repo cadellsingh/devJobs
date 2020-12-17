@@ -204,8 +204,9 @@ header .icon {
   margin-top: 20px;
 }
 
-.container p {
+.container p:first-child {
   margin: auto 0;
+  font-size: 18px;
 }
 
 .cards-or-list-container {
