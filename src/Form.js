@@ -26,11 +26,12 @@ const Form = () => {
         />
       </div>
 
-      <div className="search-container">
-        <div className="checkbox">
-          <input type="checkbox" name="fullTime" id="fullTime" />
-          <label htmlFor="fullTime">Full Time Only </label>
-        </div>
+      <div className="full-time-checkbox">
+        <input type="checkbox" name="fullTime" id="fullTime" />
+        <label htmlFor="fullTime">FT Only</label>
+      </div>
+
+      <div className="button">
         <button type="submit">Search</button>
       </div>
     </form>
