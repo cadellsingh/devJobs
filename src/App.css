@@ -198,20 +198,10 @@ header .icon {
 }
 
 /*CARDS OR LIST*/
-.container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.container p:first-child {
-  margin: auto 0;
-  font-size: 18px;
-}
-
 .cards-or-list-container {
   display: flex;
-  border: 1px solid #212628;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .cards-or-list-container svg {
@@ -222,6 +212,7 @@ header .icon {
   display: flex;
   padding: 15px;
   cursor: pointer;
+  border: 1px solid #212628;
 }
 
 .cards-or-list-container p {
@@ -243,6 +234,19 @@ header .icon {
 .show-more p {
   background-color: #045757;
   padding: 15px;
+  cursor: pointer;
+}
+
+.github-icon a {
+  color: #045757;
+  font-size: 50px;
+  bottom: 0;
+  position: fixed;
+  margin: 20px;
+}
+
+.github-icon a:hover {
+  color: white;
 }
 
 @media (max-width: 900px) {
