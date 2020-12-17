@@ -12,7 +12,6 @@ const JobCard = ({ jobDetails }) => {
     <div id="job-grid">
       <div className="logo-container">
         <img className="company-logo" src={companyLogo} alt={company} />
-        {/*<img className="company-logo" src={"/test.png"} alt="" />*/}
       </div>
       <div className="date-posted">
         <p>5h ago</p>

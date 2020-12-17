@@ -4,7 +4,13 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 const GithubIcon = () => {
   return (
     <div className="github-icon">
-      <FontAwesomeIcon icon={faGithub} />
+      <a
+        href="https://github.com/cadellsingh/devJobs"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FontAwesomeIcon icon={faGithub} />
+      </a>
     </div>
   );
 };

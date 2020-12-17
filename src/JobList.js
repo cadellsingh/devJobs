@@ -10,7 +10,6 @@ const JobList = ({ jobDetails }) => {
 
   return (
     <div id="job-list">
-      {/*<img className="company-logo" src={"/test.png"} alt="" />*/}
       <img className="company-logo" src={companyLogo} alt={company} />
       <div className="main-details">
         <p>{company}</p>
