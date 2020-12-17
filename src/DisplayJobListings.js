@@ -1,47 +1,33 @@
-import { useState } from "react";
 import JobList from "./JobList";
-import CardsOrList from "./CardsOrList";
 import JobCardRow from "./JobCardRow";
 import { uid } from "./utils/uid";
 
-const DisplayJobListings = ({ jobData }) => {
-  const [displayStyle, setDisplayStyle] = useState("list");
+const DisplayJobListings = ({ jobData, displayStyle }) => {
+  const displayPosting = jobData.map((listing) => {
+    const { data } = listing;
 
-  const handleOnClick = (arg) => {
-    arg === "card" ? setDisplayStyle("card") : setDisplayStyle("list");
-  };
+    let posting;
 
-  let displayListing;
-
-  if (jobData !== undefined) {
-    if (displayStyle === "list") {
-      displayListing = jobData.map((data) => {
-        return (
-          <div key={uid()}>
-            <JobList jobDetails={data} />
-          </div>
-        );
-      });
+    if (data !== undefined) {
+      if (displayStyle === "list") {
+        posting = data.map((listing) => {
+          return (
+            <div key={uid()}>
+              <JobList jobDetails={listing} />
+            </div>
+          );
+        });
+      } else {
+        posting = <JobCardRow jobData={data} />;
+      }
     } else {
-      displayListing = <JobCardRow jobData={jobData} />;
+      posting = null;
     }
-  } else {
-    displayListing = null;
-  }
 
-  return (
-    <div>
-      <div className="container">
-        <p>{jobData === undefined ? null : jobData.length} jobs available</p>
-        <CardsOrList
-          handleOnClick={handleOnClick}
-          displayStyle={displayStyle}
-        />
-      </div>
+    return posting;
+  });
 
-      <div className="animate-postings">{displayListing}</div>
-    </div>
-  );
+  return <div className="animate-postings">{displayPosting}</div>;
 };
 
 export default DisplayJobListings;
