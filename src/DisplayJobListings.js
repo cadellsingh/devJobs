@@ -32,7 +32,7 @@ const DisplayJobListings = ({ jobData }) => {
   return (
     <div>
       <div className="container">
-        <p>{jobData !== null && jobData.length} results found</p>
+        <p>{jobData === undefined ? null : jobData.length} jobs available</p>
         <CardsOrList
           handleOnClick={handleOnClick}
           displayStyle={displayStyle}
