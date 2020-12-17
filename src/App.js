@@ -7,6 +7,8 @@ import DisplayJobListings from "./DisplayJobListings";
 import ShowMore from "./ShowMore";
 import Wave from "./Wave";
 import GithubIcon from "./GithubIcon";
+import CardsOrList from "./CardsOrList";
+import { uid } from "./utils/uid";
 
 const inputs = {
   title: "",
@@ -14,34 +16,39 @@ const inputs = {
   fullTime: false,
 };
 
-const setFormInputs = (state, action) => {};
+const dataFetchReducer = (state, action) => {};
 
 const App = () => {
   const [jobData, setJobData] = useState([]);
-  const [showMore, setShowMore] = useState(0);
-  const [formInputs, dispatchInputs] = useReducer(setFormInputs, inputs);
+  const [showMore, setShowMore] = useState(1);
+  const [formInputs, dispatchInputs] = useReducer(dataFetchReducer, inputs);
 
   useEffect(() => {
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-    let apiUrl =
-      "https://jobs.github.com/positions.json?description=python&location=new+york";
-    apiUrl = "https://jobs.github.com/positions.json?description=ruby&page=1";
+    getPostings();
+  }, [showMore]);
+
+  const getPostings = () => {
+    const apiUrl = `https://jobs.github.com/positions.json?page=${showMore}&search=code`;
     const fetchData = async () => {
       const result = await axios(apiUrl);
 
-      setJobData(result);
+      let newJobData = [...jobData, result];
+
+      setJobData(newJobData);
     };
 
     fetchData();
-    // so the empty array can be state variables
-    // state variables will affect what the user wants to see
-  }, []);
+  };
 
   const handleShowMoreClick = () => {
     setShowMore(showMore + 1);
   };
 
-  const { data } = jobData;
+  const [displayStyle, setDisplayStyle] = useState("list");
+
+  const handleOnClick = (arg) => {
+    arg === "card" ? setDisplayStyle("card") : setDisplayStyle("list");
+  };
 
   return (
     <div>
@@ -50,13 +57,18 @@ const App = () => {
       <div className="main-container">
         <Header />
         <Form />
-        <DisplayJobListings jobData={data} />
+
+        <CardsOrList
+          handleOnClick={handleOnClick}
+          displayStyle={displayStyle}
+        />
+
+        <DisplayJobListings jobData={jobData} displayStyle={displayStyle} />
+
         <ShowMore handleOnClick={handleShowMoreClick} />
       </div>
     </div>
   );
 };
-
-// footer would be github icon at the bottom left
 
 export default App;
