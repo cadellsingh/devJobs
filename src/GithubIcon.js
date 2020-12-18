@@ -8,6 +8,7 @@ const GithubIcon = () => {
         href="https://github.com/cadellsingh/devJobs"
         target="_blank"
         rel="noreferrer"
+        aria-label="Github Link"
       >
         <FontAwesomeIcon icon={faGithub} />
       </a>
