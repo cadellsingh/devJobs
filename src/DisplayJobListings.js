@@ -1,33 +1,22 @@
-import JobList from "./JobList";
 import JobCardRow from "./JobCardRow";
-import { uid } from "./utils/uid";
+import JobListContainer from "./JobListContainer";
 
 const DisplayJobListings = ({ jobData, displayStyle }) => {
-  const displayPosting = jobData.map((listing) => {
+  const displayPosting = jobData.map((listing, index) => {
     const { data } = listing;
 
-    let posting;
-
-    if (data !== undefined) {
-      if (displayStyle === "list") {
-        posting = data.map((listing) => {
-          return (
-            <div key={uid()}>
-              <JobList jobDetails={listing} />
-            </div>
-          );
-        });
-      } else {
-        posting = <JobCardRow jobData={data} />;
-      }
-    } else {
-      posting = null;
-    }
-
-    return posting;
+    return displayStyle === "list" ? (
+      <div key={index}>
+        <JobListContainer jobData={data} />
+      </div>
+    ) : (
+      <div key={index}>
+        <JobCardRow jobData={data} />
+      </div>
+    );
   });
 
-  return <div className="animate-postings">{displayPosting}</div>;
+  return <div>{displayPosting}</div>;
 };
 
 export default DisplayJobListings;

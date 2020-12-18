@@ -8,7 +8,6 @@ import ShowMore from "./ShowMore";
 import Wave from "./Wave";
 import GithubIcon from "./GithubIcon";
 import CardsOrList from "./CardsOrList";
-import { uid } from "./utils/uid";
 
 const inputs = {
   title: "",
@@ -22,6 +21,15 @@ const App = () => {
   const [jobData, setJobData] = useState([]);
   const [showMore, setShowMore] = useState(1);
   const [formInputs, dispatchInputs] = useReducer(dataFetchReducer, inputs);
+  const [displayStyle, setDisplayStyle] = useState("list");
+
+  const handleOnClick = (arg) => {
+    arg === "card" ? setDisplayStyle("card") : setDisplayStyle("list");
+  };
+
+  const handleShowMoreClick = () => {
+    setShowMore(showMore + 1);
+  };
 
   useEffect(() => {
     getPostings();
@@ -38,16 +46,6 @@ const App = () => {
     };
 
     fetchData();
-  };
-
-  const handleShowMoreClick = () => {
-    setShowMore(showMore + 1);
-  };
-
-  const [displayStyle, setDisplayStyle] = useState("list");
-
-  const handleOnClick = (arg) => {
-    arg === "card" ? setDisplayStyle("card") : setDisplayStyle("list");
   };
 
   return (

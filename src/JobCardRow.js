@@ -1,12 +1,11 @@
 import JobCard from "./JobCard";
-import { uid } from "./utils/uid";
 
 const JobCardRow = ({ jobData }) => {
   return (
-    <div id="grid-container">
-      {jobData.map((data) => {
+    <div id="grid-container" className="animate-postings">
+      {jobData.map((data, index) => {
         return (
-          <div key={uid()} className="card-container">
+          <div key={index} className="card-container">
             <JobCard jobDetails={data} />
           </div>
         );
