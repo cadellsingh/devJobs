@@ -1,7 +1,15 @@
+import { useState } from "react";
 import JobCardRow from "./JobCardRow";
 import JobListContainer from "./JobListContainer";
+import CardsOrList from "./CardsOrList";
 
-const DisplayJobListings = ({ jobData, displayStyle }) => {
+const DisplayJobListings = ({ jobData }) => {
+  const [displayStyle, setDisplayStyle] = useState("list");
+
+  const handleOnClick = (arg) => {
+    arg === "card" ? setDisplayStyle("card") : setDisplayStyle("list");
+  };
+
   const displayPosting = jobData.map((listing, index) => {
     const { data } = listing;
 
@@ -16,7 +24,13 @@ const DisplayJobListings = ({ jobData, displayStyle }) => {
     );
   });
 
-  return <div>{displayPosting}</div>;
+  return (
+    <div>
+      <CardsOrList handleOnClick={handleOnClick} displayStyle={displayStyle} />
+
+      {displayPosting}
+    </div>
+  );
 };
 
 export default DisplayJobListings;
