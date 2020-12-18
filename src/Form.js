@@ -1,33 +1,39 @@
-const Form = () => {
-  const handleOnSubmit = () => {};
-
+const Form = ({ formInputs, dispatchInputs, handleFormSubmit }) => {
   return (
-    <form id="form-container" onSubmit={handleOnSubmit}>
+    <form id="form-container" onSubmit={handleFormSubmit}>
       <div className="title">
-        <label htmlFor="title" />
         <input
-          aria-labelledby="title"
+          aria-label="Filter Title"
           type="text"
-          name="title"
-          id="title"
           placeholder="Filter by title, companies, expertise"
+          value={formInputs.title}
+          onChange={(event) =>
+            dispatchInputs({ type: "title", value: event.target.value })
+          }
         />
       </div>
 
       <div className="location">
-        <label htmlFor="location" />
-
         <input
-          aria-labelledby="location"
+          aria-label="Filter Location"
           type="text"
-          name="location"
-          id="location"
           placeholder="Filter by location"
+          value={formInputs.location}
+          onChange={(event) =>
+            dispatchInputs({ type: "location", value: event.target.value })
+          }
         />
       </div>
 
       <div className="full-time-checkbox">
-        <input type="checkbox" name="fullTime" id="fullTime" />
+        <input
+          type="checkbox"
+          id="fullTime"
+          defaultChecked={formInputs.fullTime}
+          onChange={() =>
+            dispatchInputs({ type: "fulltime", value: !formInputs.fulltime })
+          }
+        />
         <label htmlFor="fullTime">FT Only</label>
       </div>
 

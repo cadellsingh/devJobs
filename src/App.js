@@ -7,7 +7,6 @@ import DisplayJobListings from "./DisplayJobListings";
 import ShowMore from "./ShowMore";
 import Wave from "./Wave";
 import GithubIcon from "./GithubIcon";
-import CardsOrList from "./CardsOrList";
 
 const inputs = {
   title: "",
@@ -15,17 +14,23 @@ const inputs = {
   fullTime: false,
 };
 
-const dataFetchReducer = (state, action) => {};
+const formInputsReducer = (state, action) => {
+  const value = action.value;
+
+  switch (action.type) {
+    case "title":
+      return { ...state, title: value };
+    case "location":
+      return { ...state, location: value };
+    case "fulltime":
+      return { ...state, fullTime: value };
+  }
+};
 
 const App = () => {
   const [jobData, setJobData] = useState([]);
   const [showMore, setShowMore] = useState(1);
-  const [formInputs, dispatchInputs] = useReducer(dataFetchReducer, inputs);
-  const [displayStyle, setDisplayStyle] = useState("list");
-
-  const handleOnClick = (arg) => {
-    arg === "card" ? setDisplayStyle("card") : setDisplayStyle("list");
-  };
+  const [formInputs, dispatchInputs] = useReducer(formInputsReducer, inputs);
 
   const handleShowMoreClick = () => {
     setShowMore(showMore + 1);
@@ -48,20 +53,23 @@ const App = () => {
     fetchData();
   };
 
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div>
       <Wave />
       <GithubIcon />
       <div className="main-container">
         <Header />
-        <Form />
-
-        <CardsOrList
-          handleOnClick={handleOnClick}
-          displayStyle={displayStyle}
+        <Form
+          formInputs={formInputs}
+          handleFormSubmit={handleFormSubmit}
+          dispatchInputs={dispatchInputs}
         />
 
-        <DisplayJobListings jobData={jobData} displayStyle={displayStyle} />
+        <DisplayJobListings jobData={jobData} />
 
         <ShowMore handleOnClick={handleShowMoreClick} />
       </div>
