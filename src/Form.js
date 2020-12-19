@@ -8,7 +8,7 @@ const Form = ({ formInputs, dispatchInputs, handleFormSubmit }) => {
           placeholder="Filter by title, companies, expertise"
           value={formInputs.title}
           onChange={(event) =>
-            dispatchInputs({ type: "title", value: event.target.value })
+            dispatchInputs({ type: "description", value: event.target.value })
           }
         />
       </div>
@@ -30,9 +30,7 @@ const Form = ({ formInputs, dispatchInputs, handleFormSubmit }) => {
           type="checkbox"
           id="fullTime"
           defaultChecked={formInputs.fullTime}
-          onChange={() =>
-            dispatchInputs({ type: "fulltime", value: !formInputs.fulltime })
-          }
+          onChange={() => dispatchInputs({ type: "fulltime" })}
         />
         <label htmlFor="fullTime">FT Only</label>
       </div>
