@@ -10,25 +10,23 @@ const DisplayJobListings = ({ jobData }) => {
     arg === "card" ? setDisplayStyle("card") : setDisplayStyle("list");
   };
 
-  const displayPosting = jobData.map((listing, index) => {
-    const { data } = listing;
-
-    return displayStyle === "list" ? (
-      <div key={index}>
-        <JobListContainer jobData={data} />
-      </div>
-    ) : (
-      <div key={index}>
-        <JobCardRow jobData={data} />
-      </div>
-    );
-  });
-
   return (
     <div>
       <CardsOrList handleOnClick={handleOnClick} displayStyle={displayStyle} />
 
-      {displayPosting}
+      {jobData.map((listing, index) => {
+        const { data } = listing;
+
+        return displayStyle === "list" ? (
+          <div key={index}>
+            <JobListContainer jobData={data} />
+          </div>
+        ) : (
+          <div key={index}>
+            <JobCardRow jobData={data} />
+          </div>
+        );
+      })}
     </div>
   );
 };

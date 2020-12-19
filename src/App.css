@@ -28,21 +28,6 @@ html {
   margin: 0 auto;
 }
 
-/*HEADER*/
-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 0;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-header .icon {
-  margin: auto 0;
-  font-size: 40px;
-}
-
 .animate-postings {
   position: relative;
   display: block;
@@ -133,55 +118,6 @@ header .icon {
   justify-content: space-around;
   width: 100%;
   margin: auto 0;
-}
-
-/*FORM CONTAINER*/
-#form-container {
-  padding: 5px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 100px;
-  border-radius: 5px;
-  background-color: #070910;
-  border: 1px solid #212628;
-}
-
-#form-container div {
-  height: 60px;
-  line-height: 60px;
-}
-
-#form-container .location {
-  border-left: 1px solid #212628;
-  border-right: 1px solid #212628;
-}
-
-#form-container input[type="text"] {
-  width: 100%;
-  padding-left: 15px;
-  outline: none;
-  border: none;
-  background-color: #070910;
-  font-size: 15px;
-  color: white;
-  vertical-align: center;
-}
-
-::placeholder {
-  color: white;
-}
-
-#form-container .button {
-  margin: auto;
-}
-
-#form-container .button button {
-  padding: 20px;
-  background-color: #045757;
-  outline: none;
-  border: none;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
 }
 
 /*CARDS OR LIST*/

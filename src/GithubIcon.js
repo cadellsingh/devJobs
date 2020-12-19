@@ -1,9 +1,31 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import styled from "styled-components";
+
+const GithubIconContainer = styled.div`
+  & a {
+    color: #045757;
+    font-size: 50px;
+    bottom: 0;
+    position: fixed;
+    margin: 20px;
+  }
+
+  & a:hover {
+    color: white;
+  }
+
+  @media (max-width: 900px) {
+    a {
+      margin: 5px;
+      font-size: 30px;
+    }
+  }
+`;
 
 const GithubIcon = () => {
   return (
-    <div className="github-icon">
+    <GithubIconContainer>
       <a
         href="https://github.com/cadellsingh/devJobs"
         target="_blank"
@@ -12,7 +34,7 @@ const GithubIcon = () => {
       >
         <FontAwesomeIcon icon={faGithub} />
       </a>
-    </div>
+    </GithubIconContainer>
   );
 };
 

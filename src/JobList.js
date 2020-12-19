@@ -1,3 +1,42 @@
+import styled from "styled-components";
+
+const JobListContainer = styled.div`
+  display: grid;
+  grid-template-columns: 80px 2fr 1fr;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 25px;
+  background-color: #212628;
+
+  & img {
+    width: 60px;
+    max-width: 100%;
+    height: auto;
+    margin: auto 0;
+  }
+`;
+
+const JobDetails = styled.div`
+  & p {
+    padding: 5px;
+  }
+
+  & p:nth-child(2n) {
+    color: #03dac6;
+  }
+
+  & p:last-child {
+    color: #57a6ff;
+  }
+`;
+
+const JobType = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: auto 0;
+`;
+
 const JobList = ({ jobDetails }) => {
   const {
     company,
@@ -9,18 +48,18 @@ const JobList = ({ jobDetails }) => {
   } = jobDetails || {};
 
   return (
-    <div id="job-list">
-      <img className="company-logo" src={companyLogo} alt={company} />
-      <div className="main-details">
+    <JobListContainer>
+      <img src={companyLogo} alt={company} />
+      <JobDetails>
         <p>{company}</p>
         <p>{title}</p>
-        <p className="location">{location}</p>
-      </div>
-      <div className="type">
+        <p>{location}</p>
+      </JobDetails>
+      <JobType>
         <p>{type}</p>
         <p>5 hrs ago</p>
-      </div>
-    </div>
+      </JobType>
+    </JobListContainer>
   );
 };
 

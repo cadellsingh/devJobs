@@ -7,6 +7,20 @@ import DisplayJobListings from "./DisplayJobListings";
 import ShowMore from "./ShowMore";
 import Wave from "./Wave";
 import GithubIcon from "./GithubIcon";
+import styled from "styled-components";
+
+const ContentContainer = styled.div`
+  width: 70%;
+  margin: 0 auto;
+
+  @media (min-width: 1500px) {
+    width: 60%;
+  }
+
+  @media (max-width: 900px) {
+    width: 80%;
+  }
+`;
 
 const inputs = {
   description: "",
@@ -82,7 +96,7 @@ const App = () => {
     <div>
       <Wave />
       <GithubIcon />
-      <div className="main-container">
+      <ContentContainer>
         <Header />
         <Form
           formInputs={formInputs}
@@ -93,7 +107,7 @@ const App = () => {
         <DisplayJobListings jobData={jobData} />
 
         <ShowMore dispatchApi={dispatchApi} />
-      </div>
+      </ContentContainer>
     </div>
   );
 };
