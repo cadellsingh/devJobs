@@ -13,15 +13,19 @@ const StyledHeader = styled.header`
   & span {
     margin: auto 0;
     font-size: 40px;
+    cursor: pointer;
   }
 `;
 
-const Header = () => {
+const Header = ({ theme, themeToggler }) => {
   return (
     <StyledHeader>
       <h1>devJobs</h1>
       <span>
-        <FontAwesomeIcon icon={faSun} />
+        <FontAwesomeIcon
+          icon={theme === "light" ? faMoon : faSun}
+          onClick={themeToggler}
+        />
       </span>
     </StyledHeader>
   );

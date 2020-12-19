@@ -7,6 +7,10 @@ import DisplayJobListings from "./DisplayJobListings";
 import ShowMore from "./ShowMore";
 import Wave from "./Wave";
 import GithubIcon from "./GithubIcon";
+import { lightTheme, darkTheme } from "./Themes";
+import { GlobalStyles } from "./GlobalStyles";
+import { ThemeProvider } from "styled-components";
+import { useDarkMode } from "./DarkMode";
 import styled from "styled-components";
 
 const ContentContainer = styled.div`
@@ -58,9 +62,14 @@ const apiReducer = (state, action) => {
 };
 
 const App = () => {
+  const [theme, setTheme] = useDarkMode();
   const [jobData, setJobData] = useState([]);
   const [formInputs, dispatchInputs] = useReducer(formInputsReducer, inputs);
   const [api, dispatchApi] = useReducer(apiReducer, apiDetails);
+
+  const themeToggler = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
 
   useEffect(() => {
     getPostings();
@@ -92,23 +101,30 @@ const App = () => {
     event.preventDefault();
   };
 
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
+
   return (
-    <div>
-      <Wave />
-      <GithubIcon />
-      <ContentContainer>
-        <Header />
-        <Form
-          formInputs={formInputs}
-          handleFormSubmit={handleFormSubmit}
-          dispatchInputs={dispatchInputs}
-        />
+    <ThemeProvider theme={themeMode}>
+      <>
+        <GlobalStyles />
+        <div>
+          <Wave />
+          <GithubIcon />
+          <ContentContainer>
+            <Header theme={theme} themeToggler={themeToggler} />
+            <Form
+              formInputs={formInputs}
+              handleFormSubmit={handleFormSubmit}
+              dispatchInputs={dispatchInputs}
+            />
 
-        <DisplayJobListings jobData={jobData} />
+            <DisplayJobListings jobData={jobData} />
 
-        <ShowMore dispatchApi={dispatchApi} />
-      </ContentContainer>
-    </div>
+            <ShowMore dispatchApi={dispatchApi} />
+          </ContentContainer>
+        </div>
+      </>
+    </ThemeProvider>
   );
 };
 

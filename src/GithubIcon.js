@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 const GithubIconContainer = styled.div`
   & a {
-    color: #045757;
+    //color: #045757;
+    color: ${({ theme }) => theme.githubIcon};
     font-size: 50px;
     bottom: 0;
     position: fixed;

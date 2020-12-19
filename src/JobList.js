@@ -6,7 +6,8 @@ const JobListContainer = styled.div`
   border-radius: 5px;
   padding: 10px;
   margin-top: 25px;
-  background-color: #212628;
+  //background-color: #212628;
+  background-color: ${({ theme }) => theme.jobPostingBackground};
 
   & img {
     width: 60px;
@@ -22,11 +23,13 @@ const JobDetails = styled.div`
   }
 
   & p:nth-child(2n) {
-    color: #03dac6;
+    //color: #03dac6;
+    color: ${({ theme }) => theme.titleText};
   }
 
   & p:last-child {
-    color: #57a6ff;
+    //color: #57a6ff
+    color: ${({ theme }) => theme.companyText};
   }
 `;
 
