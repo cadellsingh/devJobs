@@ -139,7 +139,7 @@ header .icon {
 #form-container {
   padding: 5px;
   display: grid;
-  grid-template-columns: 2fr 1fr 100px 100px;
+  grid-template-columns: 2fr 1fr 100px;
   border-radius: 5px;
   background-color: #070910;
   border: 1px solid #212628;
@@ -168,19 +168,6 @@ header .icon {
 
 ::placeholder {
   color: white;
-}
-
-#form-container .full-time-checkbox {
-  display: flex;
-}
-
-#form-container .full-time-checkbox input {
-  margin: auto 10px;
-}
-
-#form-container .full-time-checkbox label {
-  margin: auto;
-  width: 200px;
 }
 
 #form-container .button {
@@ -276,10 +263,6 @@ header .icon {
     border-left: none;
   }
 
-  #form-container .full-time-checkbox {
-    grid-column: 4 / 5;
-  }
-
   #form-container .button {
     border-top: 1px solid #212628;
     grid-column: 1 / 5;
@@ -288,5 +271,10 @@ header .icon {
 
   #form-container .button button {
     width: 100%;
+  }
+
+  .github-icon a {
+    margin: 5px;
+    font-size: 30px;
   }
 }

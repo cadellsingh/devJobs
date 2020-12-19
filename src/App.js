@@ -11,7 +11,6 @@ import GithubIcon from "./GithubIcon";
 const inputs = {
   description: "",
   location: "",
-  fullTime: true,
 };
 
 const formInputsReducer = (state, action) => {
@@ -22,8 +21,7 @@ const formInputsReducer = (state, action) => {
       return { ...state, description: value };
     case "location":
       return { ...state, location: value };
-    case "fulltime":
-      return { ...state, fullTime: !state.fullTime };
+    default:
   }
 };
 
@@ -39,9 +37,9 @@ const apiReducer = (state, action) => {
     case "update-api":
       let description = action.description;
       let location = action.location;
-      // let fullTime = action.fullTime;
       let newUrl = `https://jobs.github.com/positions.json?description=${description}&location=${location}&`;
       return { ...state, pageNumber: 1, url: newUrl };
+    default:
   }
 };
 
@@ -59,8 +57,7 @@ const App = () => {
     const fetchData = async () => {
       const result = await axios(apiUrl);
 
-      console.log(apiUrl);
-
+      // appends result to jobData
       let newJobData = [...jobData, result];
 
       setJobData(newJobData);
@@ -70,18 +67,16 @@ const App = () => {
   };
 
   const handleFormSubmit = (event) => {
+    // when user enters info, this resets the jobData array
     setJobData([]);
 
     dispatchApi({
       type: "update-api",
       description: formInputs.description,
       location: formInputs.location,
-      fullTime: formInputs.fullTime,
     });
     event.preventDefault();
   };
-
-  console.log(`JobData: ${jobData}`);
 
   return (
     <div>

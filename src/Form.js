@@ -25,16 +25,6 @@ const Form = ({ formInputs, dispatchInputs, handleFormSubmit }) => {
         />
       </div>
 
-      <div className="full-time-checkbox">
-        <input
-          type="checkbox"
-          id="fullTime"
-          defaultChecked={formInputs.fullTime}
-          onChange={() => dispatchInputs({ type: "fulltime" })}
-        />
-        <label htmlFor="fullTime">FT Only</label>
-      </div>
-
       <div className="button">
         <button type="submit">Search</button>
       </div>
