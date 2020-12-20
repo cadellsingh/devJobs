@@ -1,16 +1,20 @@
 export const lightTheme = {
   // all these needs to change
-  body: "white",
-  githubIcon: "green",
+  body: "#D8DCD6",
+  text: "black",
 
-  //  JOB LIST COLORS:
-  jobListBackground: "#212628",
+  // FORM COLORS
+  formBackgroundColor: "#D8DCD6",
+  buttonTextColor: "black",
+
+  jobPostingBackground: "#FDFDFE",
+  titleText: "#0f9b8e", // same color for list and grid title
+  companyText: "#03719c",
 };
 
 export const darkTheme = {
   body: "#070910",
   text: "white",
-  githubIcon: "#045757",
 
   jobPostingBackground: "#212628",
 
@@ -24,6 +28,6 @@ export const darkTheme = {
   buttonBackgroundColor: "#045757",
   buttonTextColor: "white",
 
-  // JOB GRID COLORS
-  jobGridBackground: "#212628",
+  //   CARDS OR LIST ICONS & TEXT
+  iconAndText: "white",
 };

@@ -59,12 +59,12 @@ const StyledButton = styled.div`
 
   & button {
     padding: 20px;
-    //background-color: #045757;
-    background-color: ${({ theme }) => theme.buttonBackgroundColor};
+    background-color: #045757;
+    //background-color: ${({ theme }) => theme.buttonBackgroundColor};
     outline: none;
     border: none;
-    //color: white;
-    color: ${({ theme }) => theme.buttonTextColor};
+    color: white;
+    //color: ${({ theme }) => theme.buttonTextColor};
     font-size: 15px;
     cursor: pointer;
   }

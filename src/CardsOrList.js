@@ -6,6 +6,7 @@ const CardsOrListContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 30px;
+  color: ${({ theme }) => theme.text};
 
   & svg {
     margin: auto 10px auto auto;

@@ -4,7 +4,8 @@ const JobGrid = styled.div`
   border-radius: 10px;
   padding: 25px;
   display: grid;
-  background-color: #212628;
+  background-color: ${({ theme }) => theme.jobPostingBackground};
+  color: ${({ theme }) => theme.text};
   font-size: 16px;
   position: relative;
 `;
@@ -28,7 +29,6 @@ const DatePostedContainer = styled.div`
 
 const JobDetailsContainer = styled.div`
   & p:first-child {
-    //color: #03dac6;
     color: ${({ theme }) => theme.titleText};
     font-size: 18px;
     margin: 10px 0;
@@ -39,7 +39,6 @@ const JobDetailsContainer = styled.div`
   }
 
   & p:last-child {
-    //color: #57a6ff
     color: ${({ theme }) => theme.companyText};
   }
 `;
