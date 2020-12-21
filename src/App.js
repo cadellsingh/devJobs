@@ -11,6 +11,7 @@ import { GlobalStyles } from "./GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { useDarkMode } from "./DarkMode";
 import styled from "styled-components";
+import NoResults from "./NoResults";
 
 const ContentContainer = styled.div`
   width: 75%;
@@ -104,14 +105,19 @@ const App = () => {
   };
 
   const handleFormSubmit = (event) => {
-    // when user enters info, this resets the jobData array
-    setJobData([]);
+    let location = formInputs.location.trim();
+    let description = formInputs.location.trim();
 
-    dispatchApi({
-      type: "update-api",
-      description: formInputs.description,
-      location: formInputs.location,
-    });
+    if (location !== "" || description !== "") {
+      // when user enters info, this resets the jobData array
+      setJobData([]);
+
+      dispatchApi({
+        type: "update-api",
+        description: description,
+        location: location,
+      });
+    }
     event.preventDefault();
   };
 
