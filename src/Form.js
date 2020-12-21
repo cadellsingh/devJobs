@@ -31,8 +31,13 @@ const StyledForm = styled.form`
 `;
 
 const FilterTitle = styled.div`
-  @media (max-width: 900px) {
+  @media (max-width: 750px) {
+    border-right: 1px solid ${({ theme }) => theme.borderColor};
+  }
+
+  @media (max-width: 650px) {
     grid-column: 1 / 5;
+    border-right: none;
     border-bottom: 1px solid ${({ theme }) => theme.borderColor};
   }
 `;
@@ -41,9 +46,12 @@ const LocationInput = styled.div`
   border-left: 1px solid ${({ theme }) => theme.borderColor};
   border-right: 1px solid ${({ theme }) => theme.borderColor};
 
-  @media (max-width: 900px) {
-    grid-column: 1 / 4;
+  @media (max-width: 750px) {
     border: none;
+  }
+
+  @media (max-width: 650px) {
+    grid-column: 1 / 4;
   }
 `;
 
@@ -60,9 +68,8 @@ const StyledButton = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 900px) {
-    border-top: 1px solid #212628;
-    border-top: 1px solid ${({ theme }) => theme.borderColor};
+  @media (max-width: 750px) {
+    //border-top: 1px solid ${({ theme }) => theme.borderColor};
     grid-column: 1/5;
     width: 100%;
 
@@ -82,7 +89,10 @@ const Form = ({ formInputs, dispatchInputs, handleFormSubmit }) => {
           placeholder="Filter by title, company, expertise"
           value={formInputs.title}
           onChange={(event) =>
-            dispatchInputs({ type: "description", value: event.target.value })
+            dispatchInputs({
+              type: "description",
+              value: event.target.value,
+            })
           }
         />
       </FilterTitle>
