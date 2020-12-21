@@ -5,7 +5,6 @@ const StyledForm = styled.form`
   display: grid;
   grid-template-columns: 2fr 1fr 100px;
   border-radius: 5px;
-  //background-color: #070910;
   background-color: ${({ theme }) => theme.formBackgroundColor};
   border: 1px solid #212628;
   border: 1px solid ${({ theme }) => theme.borderColor};
@@ -20,16 +19,13 @@ const StyledForm = styled.form`
     padding-left: 15px;
     outline: none;
     border: none;
-    //background-color: #070910;
     background-color: ${({ theme }) => theme.formBackgroundColor};
     font-size: 15px;
-    //color: white;
     color: ${({ theme }) => theme.text};
     vertical-align: center;
   }
 
   & ::placeholder {
-    //color: white;
     color: ${({ theme }) => theme.text};
   }
 `;
@@ -37,20 +33,17 @@ const StyledForm = styled.form`
 const FilterTitle = styled.div`
   @media (max-width: 900px) {
     grid-column: 1 / 5;
-    //border-bottom: 1px solid #212628;
     border-bottom: 1px solid ${({ theme }) => theme.borderColor};
   }
 `;
 
 const LocationInput = styled.div`
-  //border-left: 1px solid #212628;
   border-left: 1px solid ${({ theme }) => theme.borderColor};
-  //border-right: 1px solid #212628;
   border-right: 1px solid ${({ theme }) => theme.borderColor};
 
   @media (max-width: 900px) {
     grid-column: 1 / 4;
-    border-left: none;
+    border: none;
   }
 `;
 
@@ -60,11 +53,9 @@ const StyledButton = styled.div`
   & button {
     padding: 20px;
     background-color: #045757;
-    //background-color: ${({ theme }) => theme.buttonBackgroundColor};
     outline: none;
     border: none;
     color: white;
-    //color: ${({ theme }) => theme.buttonTextColor};
     font-size: 15px;
     cursor: pointer;
   }
@@ -84,7 +75,7 @@ const StyledButton = styled.div`
 const Form = ({ formInputs, dispatchInputs, handleFormSubmit }) => {
   return (
     <StyledForm onSubmit={handleFormSubmit}>
-      <div>
+      <FilterTitle>
         <input
           aria-label="Filter Title"
           type="text"
@@ -94,7 +85,7 @@ const Form = ({ formInputs, dispatchInputs, handleFormSubmit }) => {
             dispatchInputs({ type: "description", value: event.target.value })
           }
         />
-      </div>
+      </FilterTitle>
 
       <LocationInput>
         <input

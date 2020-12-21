@@ -8,12 +8,12 @@ const GridContainer = styled.div`
   margin-top: 40px;
 
   position: relative;
-  //display: block;
   transform-origin: bottom;
   animation: animateWave 1000ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr 1fr;
+    //grid-gap: 10px;
   }
 `;
 
@@ -24,7 +24,7 @@ const CardContainer = styled.div`
 
 const JobCardRow = ({ jobData }) => {
   return (
-    <div id="grid-container" className="animate-postings">
+    <GridContainer>
       {jobData.map((data, index) => {
         return (
           <CardContainer key={index}>
@@ -32,7 +32,7 @@ const JobCardRow = ({ jobData }) => {
           </CardContainer>
         );
       })}
-    </div>
+    </GridContainer>
   );
 };
 

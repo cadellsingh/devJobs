@@ -10,6 +10,9 @@ const DisplayJobListings = ({ jobData }) => {
     arg === "card" ? setDisplayStyle("card") : setDisplayStyle("list");
   };
 
+  const { data } = jobData[0] || {};
+  // console.log(data);
+
   return (
     <div>
       <CardsOrList handleOnClick={handleOnClick} displayStyle={displayStyle} />

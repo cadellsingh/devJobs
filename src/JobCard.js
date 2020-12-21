@@ -51,12 +51,18 @@ const JobCard = ({ jobDetails }) => {
     title,
     type,
     created_at: createdAt,
+    description,
+    url,
   } = jobDetails || {};
 
   return (
     <JobGrid>
       <LogoContainer>
-        <img src={companyLogo} alt={company} />
+        {companyLogo !== null ? (
+          <img src={companyLogo} alt={company} />
+        ) : (
+          <img alt="" />
+        )}
       </LogoContainer>
       <DatePostedContainer>
         <p>5h ago</p>

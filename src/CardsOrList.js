@@ -21,7 +21,7 @@ const CardsOrListContainer = styled.div`
     display: flex;
     padding: 15px;
     cursor: pointer;
-    border: 1px solid #212628;
+    border: 1px solid ${({ theme }) => theme.cardsOrListBorder};
   }
 `;
 
@@ -30,11 +30,13 @@ const activeBackgroundColor = "#045757";
 const CardIcon = styled.div`
   background-color: ${(props) =>
     props.displayStyle === "card" ? activeBackgroundColor : null};
+  color: ${(props) => props.displayStyle === "card" && "white"};
 `;
 
 const ListIcon = styled.div`
   background-color: ${(props) =>
     props.displayStyle === "list" ? activeBackgroundColor : null};
+  color: ${(props) => props.displayStyle === "list" && "white"};
 `;
 
 const CardsOrList = ({ handleOnClick, displayStyle }) => {

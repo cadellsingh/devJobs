@@ -23,15 +23,10 @@ const JobDetails = styled.div`
   }
 
   & p:nth-child(2n) {
-    //color: #03dac6;
-    //color: #0f9b8e;
-
     color: ${({ theme }) => theme.titleText};
   }
 
   & p:last-child {
-    //color: #57a6ff;
-    //color: #03719c;
     color: ${({ theme }) => theme.companyText};
   }
 `;
@@ -55,7 +50,11 @@ const JobList = ({ jobDetails }) => {
 
   return (
     <JobListContainer>
-      <img src={companyLogo} alt={company} />
+      {companyLogo !== null ? (
+        <img src={companyLogo} alt={company} />
+      ) : (
+        <img alt="" />
+      )}
       <JobDetails>
         <p>{company}</p>
         <p>{title}</p>

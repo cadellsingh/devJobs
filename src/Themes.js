@@ -7,9 +7,11 @@ export const lightTheme = {
   formBackgroundColor: "#D8DCD6",
   buttonTextColor: "black",
 
-  jobPostingBackground: "#FDFDFE",
+  jobPostingBackground: "#E7EBE0FF",
   titleText: "#0f9b8e", // same color for list and grid title
   companyText: "#03719c",
+
+  cardsOrListBorder: "white",
 };
 
 export const darkTheme = {
@@ -25,9 +27,7 @@ export const darkTheme = {
   // FORM COLORS
   borderColor: "#212628", // entire border and left / right border of filter by location
   formBackgroundColor: "#070910", // backgroundColor for form container and inputs
-  buttonBackgroundColor: "#045757",
-  buttonTextColor: "white",
 
   //   CARDS OR LIST ICONS & TEXT
-  iconAndText: "white",
+  cardsOrListBorder: "#212628",
 };
