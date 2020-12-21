@@ -1,17 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import JobCardRow from "./JobCardRow";
 import JobListContainer from "./JobListContainer";
 import CardsOrList from "./CardsOrList";
 
 const DisplayJobListings = ({ jobData }) => {
   const [displayStyle, setDisplayStyle] = useState("list");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+  }, []);
+
+  if (windowWidth < 680 && displayStyle !== "card") {
+    setDisplayStyle("card");
+  }
 
   const handleOnClick = (arg) => {
     arg === "card" ? setDisplayStyle("card") : setDisplayStyle("list");
   };
-
-  const { data } = jobData[0] || {};
-  // console.log(data);
 
   return (
     <div>
