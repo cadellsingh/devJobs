@@ -4,7 +4,6 @@ import axios from "axios";
 import Header from "./Header";
 import Form from "./Form";
 import DisplayJobListings from "./DisplayJobListings";
-import ShowMore from "./ShowMore";
 import Wave from "./Wave";
 import GithubIcon from "./GithubIcon";
 import { lightTheme, darkTheme } from "./Themes";
@@ -14,7 +13,7 @@ import { useDarkMode } from "./DarkMode";
 import styled from "styled-components";
 
 const ContentContainer = styled.div`
-  width: 70%;
+  width: 75%;
   margin: 0 auto;
 
   @media (min-width: 1500px) {
@@ -72,6 +71,21 @@ const App = () => {
   };
 
   useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // calculates the end of page, when end of page is reached... get more job postings
+  function handleScroll() {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight
+    )
+      return;
+    dispatchApi({ type: "show-more" });
+  }
+
+  useEffect(() => {
     getPostings();
   }, [api]);
 
@@ -119,8 +133,6 @@ const App = () => {
             />
 
             <DisplayJobListings jobData={jobData} />
-
-            <ShowMore dispatchApi={dispatchApi} />
           </ContentContainer>
         </div>
       </>
