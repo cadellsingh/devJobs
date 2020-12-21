@@ -4,7 +4,7 @@ import styled from "styled-components";
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 40px;
+  grid-gap: 20px;
   margin-top: 40px;
 
   position: relative;
@@ -13,7 +13,12 @@ const GridContainer = styled.div`
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr 1fr;
-    //grid-gap: 10px;
+    grid-gap: 10px;
+  }
+
+  @media (max-width: 550px) {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
   }
 `;
 

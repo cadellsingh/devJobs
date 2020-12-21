@@ -15,6 +15,14 @@ const StyledHeader = styled.header`
     font-size: 40px;
     cursor: pointer;
   }
+
+  @media (max-width: 550px) {
+    font-size: 15px;
+
+    & span {
+      font-size: 30px;
+    }
+  }
 `;
 
 const Header = ({ theme, themeToggler }) => {

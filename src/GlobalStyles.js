@@ -11,6 +11,10 @@ export const GlobalStyles = createGlobalStyle`
       background-color: ${({ theme }) => theme.body};
       transition: all .50s linear;
     }
+    
+    body {
+      margin-bottom: 100px;
+    }
 
     @keyframes animateWave {
       0% {

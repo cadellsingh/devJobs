@@ -23,6 +23,10 @@ const CardsOrListContainer = styled.div`
     cursor: pointer;
     border: 1px solid ${({ theme }) => theme.cardsOrListBorder};
   }
+
+  @media (max-width: 680px) {
+    display: none;
+  }
 `;
 
 const activeBackgroundColor = "#045757";
