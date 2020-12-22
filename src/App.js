@@ -106,7 +106,7 @@ const App = () => {
 
   const handleFormSubmit = (event) => {
     let location = formInputs.location.trim();
-    let description = formInputs.location.trim();
+    let description = formInputs.description.trim();
 
     if (location !== "" || description !== "") {
       // when user enters info, this resets the jobData array
