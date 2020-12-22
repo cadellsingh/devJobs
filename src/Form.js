@@ -6,8 +6,6 @@ const StyledForm = styled.form`
   grid-template-columns: 2fr 1fr 100px;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.formBackgroundColor};
-  border: 1px solid #212628;
-  border: 1px solid ${({ theme }) => theme.borderColor};
 
   & div {
     height: 60px;
@@ -32,19 +30,19 @@ const StyledForm = styled.form`
 
 const FilterTitle = styled.div`
   @media (max-width: 750px) {
-    border-right: 1px solid ${({ theme }) => theme.borderColor};
+    border-right: 1px solid #045757;
   }
 
   @media (max-width: 650px) {
     grid-column: 1 / 5;
     border-right: none;
-    border-bottom: 1px solid ${({ theme }) => theme.borderColor};
+    border-bottom: 1px solid #045757;
   }
 `;
 
 const LocationInput = styled.div`
-  border-left: 1px solid ${({ theme }) => theme.borderColor};
-  border-right: 1px solid ${({ theme }) => theme.borderColor};
+  border-left: 1px solid #045757;
+  border-right: 1px solid #045757;
 
   @media (max-width: 750px) {
     border: none;
@@ -69,7 +67,6 @@ const StyledButton = styled.div`
   }
 
   @media (max-width: 750px) {
-    //border-top: 1px solid ${({ theme }) => theme.borderColor};
     grid-column: 1/5;
     width: 100%;
 

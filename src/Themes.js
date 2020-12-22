@@ -2,32 +2,19 @@ export const lightTheme = {
   // all these needs to change
   body: "#D8DCD6",
   text: "black",
-
-  // FORM COLORS
-  formBackgroundColor: "#D8DCD6",
-  buttonTextColor: "black",
-
-  jobPostingBackground: "#E7EBE0FF",
-  titleText: "#0f9b8e", // same color for list and grid title
+  jobPostingBackground: "white",
+  formBackgroundColor: "white",
+  titleText: "#0f9b8e",
   companyText: "#03719c",
-
   cardsOrListBorder: "white",
 };
 
 export const darkTheme = {
   body: "#070910",
   text: "white",
-
   jobPostingBackground: "#212628",
-
-  // JOB LIST COLORS
-  titleText: "#03dac6", // same color for list and grid title
+  formBackgroundColor: "#212628",
+  titleText: "#03dac6",
   companyText: "#57a6ff",
-
-  // FORM COLORS
-  borderColor: "#212628", // entire border and left / right border of filter by location
-  formBackgroundColor: "#070910", // backgroundColor for form container and inputs
-
-  //   CARDS OR LIST ICONS & TEXT
   cardsOrListBorder: "#212628",
 };
