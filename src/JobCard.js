@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const JobGrid = styled.div`
+const StyledJobCard = styled.div`
   border-radius: 10px;
   padding: 25px;
   display: grid;
@@ -8,6 +8,7 @@ const JobGrid = styled.div`
   color: ${({ theme }) => theme.text};
   font-size: 16px;
   position: relative;
+  height: 250px;
 `;
 
 const LogoContainer = styled.div`
@@ -58,7 +59,7 @@ const JobCard = ({ jobDetails }) => {
   } = jobDetails || {};
 
   return (
-    <JobGrid>
+    <StyledJobCard>
       <LogoContainer>
         {companyLogo !== null ? (
           <img src={companyLogo} alt={company} />
@@ -75,7 +76,7 @@ const JobCard = ({ jobDetails }) => {
         <p>{company}</p>
         <p className="location">{location}</p>
       </JobDetailsContainer>
-    </JobGrid>
+    </StyledJobCard>
   );
 };
 

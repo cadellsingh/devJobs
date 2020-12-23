@@ -16,9 +16,16 @@ const GithubIconContainer = styled.div`
   }
 
   @media (max-width: 900px) {
-    a {
+    & a {
       margin: 5px;
       font-size: 30px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    & a {
+      margin: 3px;
+      font-size: 20px;
     }
   }
 `;

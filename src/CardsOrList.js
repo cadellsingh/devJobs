@@ -6,7 +6,7 @@ const CardsOrListContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 30px;
-  color: ${({ theme }) => theme.text};
+  color: black;
 
   & svg {
     margin: auto 10px auto auto;
@@ -22,6 +22,7 @@ const CardsOrListContainer = styled.div`
     padding: 15px;
     cursor: pointer;
     border: 1px solid ${({ theme }) => theme.cardsOrListBorder};
+    background-color: #045757;
   }
 
   @media (max-width: 680px) {
@@ -29,18 +30,14 @@ const CardsOrListContainer = styled.div`
   }
 `;
 
-const activeBackgroundColor = "#045757";
+const activeColor = "white";
 
 const CardIcon = styled.div`
-  background-color: ${(props) =>
-    props.displayStyle === "card" ? activeBackgroundColor : null};
-  color: ${(props) => props.displayStyle === "card" && "white"};
+  color: ${(props) => (props.displayStyle === "card" ? activeColor : null)};
 `;
 
 const ListIcon = styled.div`
-  background-color: ${(props) =>
-    props.displayStyle === "list" ? activeBackgroundColor : null};
-  color: ${(props) => props.displayStyle === "list" && "white"};
+  color: ${(props) => (props.displayStyle === "list" ? activeColor : null)};
 `;
 
 const CardsOrList = ({ handleOnClick, displayStyle }) => {

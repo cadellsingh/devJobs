@@ -26,6 +26,12 @@ const StyledForm = styled.form`
   & ::placeholder {
     color: ${({ theme }) => theme.text};
   }
+
+  @media (max-width: 330px) {
+    & ::placeholder {
+      font-size: 13px;
+    }
+  }
 `;
 
 const FilterTitle = styled.div`
