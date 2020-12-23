@@ -1,7 +1,7 @@
 # DevJobs App
 
 ## General Info
-- View the latest developer jobs posted on Github.
+- View the latest developer jobs via the Github api.
 
 ## Demo
 - You can view it here [DevJobs](https://devjobss.netlify.app/)
