@@ -24,10 +24,12 @@ const JobDetails = styled.div`
 
   & p:nth-child(2n) {
     color: ${({ theme }) => theme.titleText};
+    font-weight: 800;
   }
 
   & p:last-child {
     color: ${({ theme }) => theme.companyText};
+    font-weight: 700;
   }
 `;
 

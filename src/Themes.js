@@ -1,11 +1,10 @@
 export const lightTheme = {
-  // all these needs to change
   body: "#D8DCD6",
   text: "black",
   jobPostingBackground: "white",
   formBackgroundColor: "white",
-  titleText: "#0f9b8e",
-  companyText: "#03719c",
+  titleText: "#00796b",
+  companyText: "#115293",
   cardsOrListBorder: "white",
 };
 

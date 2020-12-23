@@ -30,6 +30,7 @@ const DatePostedContainer = styled.div`
 const JobDetailsContainer = styled.div`
   & p:first-child {
     color: ${({ theme }) => theme.titleText};
+    font-weight: 800;
     font-size: 18px;
     margin: 10px 0;
   }
@@ -40,6 +41,7 @@ const JobDetailsContainer = styled.div`
 
   & p:last-child {
     color: ${({ theme }) => theme.companyText};
+    font-weight: 700;
   }
 `;
 
