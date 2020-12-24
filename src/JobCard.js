@@ -9,6 +9,16 @@ const StyledJobCard = styled.div`
   font-size: 16px;
   position: relative;
   height: 250px;
+
+  :hover {
+    border: 1px solid ${({ theme }) => theme.text};
+  }
+
+  & a {
+    display: grid;
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -60,22 +70,24 @@ const JobCard = ({ jobDetails }) => {
 
   return (
     <StyledJobCard>
-      <LogoContainer>
-        {companyLogo !== null ? (
-          <img src={companyLogo} alt={company} />
-        ) : (
-          <img alt="" />
-        )}
-      </LogoContainer>
-      <DatePostedContainer>
-        <p>5h ago</p>
-        <p>{type}</p>
-      </DatePostedContainer>
-      <JobDetailsContainer>
-        <p>{title}</p>
-        <p>{company}</p>
-        <p className="location">{location}</p>
-      </JobDetailsContainer>
+      <a href={url} target="_blank" rel="noreferrer">
+        <LogoContainer>
+          {companyLogo !== null ? (
+            <img src={companyLogo} alt={company} />
+          ) : (
+            <img alt="" />
+          )}
+        </LogoContainer>
+        <DatePostedContainer>
+          <p>5h ago</p>
+          <p>{type}</p>
+        </DatePostedContainer>
+        <JobDetailsContainer>
+          <p>{title}</p>
+          <p>{company}</p>
+          <p className="location">{location}</p>
+        </JobDetailsContainer>
+      </a>
     </StyledJobCard>
   );
 };
