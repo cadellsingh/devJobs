@@ -32,7 +32,7 @@ const StyledHeader = styled.header`
 const Header = ({ theme, themeToggler }) => {
   return (
     <StyledHeader>
-      <h1 onClick={() => window.location.reload(false)}>devJobs</h1>
+      <h1 onClick={() => window.location.reload(false)}>devJobss</h1>
       <span>
         <FontAwesomeIcon
           icon={theme === "light" ? faMoon : faSun}
