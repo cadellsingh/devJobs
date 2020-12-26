@@ -57,16 +57,12 @@ const JobDetailsContainer = styled.div`
 `;
 
 const JobCard = ({ jobDetails }) => {
-  const {
-    company,
-    company_logo: companyLogo,
-    location,
-    title,
-    type,
-    created_at: createdAt,
-    description,
-    url,
-  } = jobDetails || {};
+  const { company, company_logo: companyLogo, location, title, type, url } =
+    jobDetails || {};
+
+  let { created_at: createdAt } = jobDetails || {};
+
+  createdAt = createdAt.split(" ").slice(0, 3).join(" ");
 
   return (
     <StyledJobCard>
@@ -79,7 +75,7 @@ const JobCard = ({ jobDetails }) => {
           )}
         </LogoContainer>
         <DatePostedContainer>
-          <p>5h ago</p>
+          <p>{createdAt}</p>
           <p>{type}</p>
         </DatePostedContainer>
         <JobDetailsContainer>

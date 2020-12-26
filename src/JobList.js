@@ -53,23 +53,15 @@ const JobType = styled.div`
 `;
 
 const JobList = ({ jobDetails }) => {
-  const {
-    company,
-    company_logo: companyLogo,
-    location,
-    title,
-    type,
-    created_at: createdAt,
-    description,
-    url,
-  } = jobDetails || {};
+  const { company, company_logo: companyLogo, location, title, type, url } =
+    jobDetails || {};
 
-  const handleOnClick = () => {
-    console.log("test");
-  };
+  let { created_at: createdAt } = jobDetails || {};
+
+  createdAt = createdAt.split(" ").slice(0, 3).join(" ");
 
   return (
-    <JobListContainer onClick={handleOnClick}>
+    <JobListContainer>
       <a href={url} target="_blank" rel="noreferrer">
         {companyLogo !== null ? (
           <img src={companyLogo} alt={company} />
@@ -83,7 +75,7 @@ const JobList = ({ jobDetails }) => {
         </JobDetails>
         <JobType>
           <p>{type}</p>
-          <p>5 hrs ago</p>
+          <p>{createdAt}</p>
         </JobType>
       </a>
     </JobListContainer>
