@@ -94,10 +94,10 @@ const App = () => {
   }, [api]);
 
   const getPostings = () => {
-    // const cors = "https://cors-anywhere.herokuapp.com/";
+    const cors = "https://cors-anywhere.herokuapp.com/";
     const apiUrl = api.url + `page=${api.pageNumber}`;
     const fetchData = async () => {
-      const result = await axios(apiUrl);
+      const result = await axios(cors + apiUrl);
       const { data } = result;
 
       if (data.length > 0) {
