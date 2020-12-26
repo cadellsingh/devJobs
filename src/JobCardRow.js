@@ -5,7 +5,7 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
-  margin-top: 40px;
+  margin-top: 20px;
 
   position: relative;
   transform-origin: bottom;

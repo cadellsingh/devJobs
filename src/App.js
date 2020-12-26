@@ -66,6 +66,7 @@ const App = () => {
   const [jobData, setJobData] = useState([]);
   const [formInputs, dispatchInputs] = useReducer(formInputsReducer, inputs);
   const [api, dispatchApi] = useReducer(apiReducer, apiDetails);
+  const [noResults, setNoResults] = useState(false);
 
   const themeToggler = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -94,15 +95,20 @@ const App = () => {
 
   const getPostings = () => {
     // const cors = "https://cors-anywhere.herokuapp.com/";
-
     const apiUrl = api.url + `page=${api.pageNumber}`;
     const fetchData = async () => {
       const result = await axios(apiUrl);
+      const { data } = result;
 
-      // appends result to jobData
-      let newJobData = [...jobData, result];
+      if (data.length > 0) {
+        // appends result to jobData
+        let newJobData = [...jobData, result];
 
-      setJobData(newJobData);
+        setJobData(newJobData);
+        setNoResults(false);
+      } else {
+        setNoResults(true);
+      }
     };
 
     fetchData();
@@ -141,7 +147,11 @@ const App = () => {
               dispatchInputs={dispatchInputs}
             />
 
-            <DisplayJobListings jobData={jobData} />
+            {noResults ? (
+              <NoResults />
+            ) : (
+              <DisplayJobListings jobData={jobData} />
+            )}
           </ContentContainer>
         </div>
       </>

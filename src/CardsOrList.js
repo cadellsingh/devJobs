@@ -5,7 +5,7 @@ import styled from "styled-components";
 const CardsOrListContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin: 30px 0;
   color: black;
 
   & svg {
