@@ -30,8 +30,6 @@ const DisplayJobListings = ({ jobData }) => {
       {jobData.map((listing, index) => {
         const { data } = listing;
 
-        // console.log(data);
-
         return displayStyle === "list" ? (
           <div key={index}>
             <JobListContainer jobData={data} />
