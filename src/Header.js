@@ -10,6 +10,10 @@ const StyledHeader = styled.header`
   font-size: 20px;
   font-weight: bold;
 
+  & h1 {
+    cursor: pointer;
+  }
+
   & span {
     margin: auto 0;
     font-size: 40px;
@@ -28,7 +32,7 @@ const StyledHeader = styled.header`
 const Header = ({ theme, themeToggler }) => {
   return (
     <StyledHeader>
-      <h1>devJobs</h1>
+      <h1 onClick={() => window.location.reload(false)}>devJobs</h1>
       <span>
         <FontAwesomeIcon
           icon={theme === "light" ? faMoon : faSun}
