@@ -73,7 +73,9 @@ const App = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   // calculates the end of page, when end of page is reached... get more job postings
@@ -91,10 +93,11 @@ const App = () => {
   }, [api]);
 
   const getPostings = () => {
-    const cors = "https://cors-anywhere.herokuapp.com/";
+    // const cors = "https://cors-anywhere.herokuapp.com/";
+
     const apiUrl = api.url + `page=${api.pageNumber}`;
     const fetchData = async () => {
-      const result = await axios(cors + apiUrl);
+      const result = await axios(apiUrl);
 
       // appends result to jobData
       let newJobData = [...jobData, result];
@@ -109,10 +112,9 @@ const App = () => {
     let location = formInputs.location.trim();
     let description = formInputs.description.trim();
 
-    if (location !== "" || description !== "") {
-      // when user enters info, this resets the jobData array
-      setJobData([]);
+    setJobData([]);
 
+    if (location !== "" || description !== "") {
       dispatchApi({
         type: "update-api",
         description: description,

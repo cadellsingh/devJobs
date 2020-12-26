@@ -8,6 +8,7 @@ const Container = styled.div`
 `;
 
 const JobListContainer = ({ jobData }) => {
+  // jobData = jobData || [];
   return (
     <Container>
       {jobData.map((data, index) => {

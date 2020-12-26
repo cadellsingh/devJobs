@@ -4,7 +4,7 @@ import JobListContainer from "./JobListContainer";
 import CardsOrList from "./CardsOrList";
 
 const DisplayJobListings = ({ jobData }) => {
-  const [displayStyle, setDisplayStyle] = useState("list");
+  const [displayStyle, setDisplayStyle] = useState("card");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -29,6 +29,8 @@ const DisplayJobListings = ({ jobData }) => {
 
       {jobData.map((listing, index) => {
         const { data } = listing;
+
+        // console.log(data);
 
         return displayStyle === "list" ? (
           <div key={index}>

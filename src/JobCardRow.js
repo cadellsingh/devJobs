@@ -28,6 +28,8 @@ const CardContainer = styled.div`
 `;
 
 const JobCardRow = ({ jobData }) => {
+  // jobData = jobData || [];
+
   return (
     <GridContainer>
       {jobData.map((data, index) => {
